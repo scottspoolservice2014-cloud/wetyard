@@ -3,7 +3,8 @@ function wy(path="/"){return WY_BASE+(path.startsWith("/")?path:"/"+path);}
 document.querySelectorAll('a[href^="/wetyard/"]').forEach(a=>{if(WY_BASE==="")a.setAttribute("href",a.getAttribute("href").replace(/^\/wetyard/,""));});
 document.querySelectorAll('[data-nav="problems"]').forEach(a=>a.href=wy("/problems/"));
 document.querySelectorAll('[data-nav="solutions"]').forEach(a=>a.href=wy("/solutions/"));
-document.querySelectorAll('[data-nav="pros"]').forEach(a=>a.href=wy("/local-pros/"));\ndocument.querySelectorAll(".nav-links a").forEach(a=>{const t=a.textContent.trim();if(t==="Problems")a.href=wy("/problems/");if(t==="Solutions")a.href=wy("/solutions/");if(t==="Local Pros")a.href=wy("/local-pros/");if(t==="Home")a.href=wy("/");if(t==="Find Help")a.href=wy("/find-help/");});
+document.querySelectorAll('[data-nav="pros"]').forEach(a=>a.href=wy("/local-pros/"));
+document.querySelectorAll(".nav-links a").forEach(a=>{const t=a.textContent.trim();if(t==="Problems")a.href=wy("/problems/");if(t==="Solutions")a.href=wy("/solutions/");if(t==="Local Pros")a.href=wy("/local-pros/");if(t==="Home")a.href=wy("/");if(t==="Find Help")a.href=wy("/find-help/");});
 const providers=[
 {n:"Badger Underground Construction",c:["Stuart","Palm City","Jensen Beach","Hobe Sound","Port St. Lucie"],s:["French drains","Catch basins","Channel drains","Dry wells","Excavation"],p:["standing-water","flooding","erosion"]},
 {n:"Titan Gutters and Drainage",c:["Stuart","Jensen Beach","Port St. Lucie"],s:["French drains","Surface drainage","Subsurface drainage","Downspout drainage"],p:["standing-water","flooding","erosion"]},
