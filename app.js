@@ -1,3 +1,9 @@
+const WY_BASE=location.hostname.endsWith("github.io")?"/wetyard":"";
+function wy(path="/"){return WY_BASE+(path.startsWith("/")?path:"/"+path);}
+document.querySelectorAll('a[href^="/wetyard/"]').forEach(a=>{if(WY_BASE==="")a.setAttribute("href",a.getAttribute("href").replace(/^\/wetyard/,""));});
+document.querySelectorAll('[data-nav="problems"]').forEach(a=>a.href=wy("/problems/"));
+document.querySelectorAll('[data-nav="solutions"]').forEach(a=>a.href=wy("/solutions/"));
+document.querySelectorAll('[data-nav="pros"]').forEach(a=>a.href=wy("/local-pros/"));
 const providers=[
 {n:"Badger Underground Construction",c:["Stuart","Palm City","Jensen Beach","Hobe Sound","Port St. Lucie"],s:["French drains","Catch basins","Channel drains","Dry wells","Excavation"],p:["standing-water","flooding","erosion"]},
 {n:"Titan Gutters and Drainage",c:["Stuart","Jensen Beach","Port St. Lucie"],s:["French drains","Surface drainage","Subsurface drainage","Downspout drainage"],p:["standing-water","flooding","erosion"]},
@@ -19,43 +25,43 @@ const providers=[
 ];
 
 const serviceLinks={
-"French drains":"/wetyard/french-drain-installation/",
-"Catch basins":"/wetyard/catch-basins/",
-"Channel drains":"/wetyard/channel-drains/",
-"Dry wells":"/wetyard/dry-wells/",
-"Excavation":"/wetyard/excavation-site-drainage/",
-"Surface drainage":"/wetyard/surface-drainage/",
-"Subsurface drainage":"/wetyard/subsurface-drainage/",
-"Downspout drainage":"/wetyard/downspout-drainage/",
-"Drainage systems":"/wetyard/yard-drainage-systems/",
-"Drainage design":"/wetyard/yard-drainage-systems/",
-"Drainage work":"/wetyard/yard-drainage-systems/",
-"Drainage remediation":"/wetyard/yard-drainage-systems/",
-"Landscape drainage":"/wetyard/yard-drainage-systems/",
-"Grading":"/wetyard/yard-grading-drainage/",
-"Corrective grading":"/wetyard/yard-grading-drainage/",
-"Site grading":"/wetyard/yard-grading-drainage/",
-"Land shaping":"/wetyard/yard-grading-drainage/",
-"Leveling":"/wetyard/yard-grading-drainage/",
-"Surface collection":"/wetyard/surface-drainage/",
-"Erosion control":"/wetyard/erosion-runoff-control/",
-"Swales":"/wetyard/swales-and-culverts/",
-"Culverts":"/wetyard/swales-and-culverts/",
-"Ditch reshaping":"/wetyard/swales-and-culverts/",
-"Irrigation diagnosis":"/wetyard/irrigation-drainage-diagnosis/",
-"Irrigation troubleshooting":"/wetyard/irrigation-drainage-diagnosis/",
-"Irrigation systems":"/wetyard/irrigation-drainage-diagnosis/",
-"Sump systems":"/wetyard/yard-sump-systems/",
-"Drainage tiles":"/wetyard/subsurface-drainage/",
-"Drainage berms":"/wetyard/yard-grading-drainage/",
-"Trenching":"/wetyard/excavation-site-drainage/",
-"Site preparation":"/wetyard/excavation-site-drainage/",
-"Land development":"/wetyard/excavation-site-drainage/",
-"Earthwork":"/wetyard/excavation-site-drainage/",
-"Site work":"/wetyard/excavation-site-drainage/",
-"Stormwater drainage":"/wetyard/stormwater-drainage/",
-"Stormwater work":"/wetyard/stormwater-drainage/",
-"Rainwater drainage":"/wetyard/surface-drainage/"
+"French drains":wy("/french-drain-installation/"),
+"Catch basins":wy("/catch-basins/"),
+"Channel drains":wy("/channel-drains/"),
+"Dry wells":wy("/dry-wells/"),
+"Excavation":wy("/excavation-site-drainage/"),
+"Surface drainage":wy("/surface-drainage/"),
+"Subsurface drainage":wy("/subsurface-drainage/"),
+"Downspout drainage":wy("/downspout-drainage/"),
+"Drainage systems":wy("/yard-drainage-systems/"),
+"Drainage design":wy("/yard-drainage-systems/"),
+"Drainage work":wy("/yard-drainage-systems/"),
+"Drainage remediation":wy("/yard-drainage-systems/"),
+"Landscape drainage":wy("/yard-drainage-systems/"),
+"Grading":wy("/yard-grading-drainage/"),
+"Corrective grading":wy("/yard-grading-drainage/"),
+"Site grading":wy("/yard-grading-drainage/"),
+"Land shaping":wy("/yard-grading-drainage/"),
+"Leveling":wy("/yard-grading-drainage/"),
+"Surface collection":wy("/surface-drainage/"),
+"Erosion control":wy("/erosion-runoff-control/"),
+"Swales":wy("/swales-and-culverts/"),
+"Culverts":wy("/swales-and-culverts/"),
+"Ditch reshaping":wy("/swales-and-culverts/"),
+"Irrigation diagnosis":wy("/irrigation-drainage-diagnosis/"),
+"Irrigation troubleshooting":wy("/irrigation-drainage-diagnosis/"),
+"Irrigation systems":wy("/irrigation-drainage-diagnosis/"),
+"Sump systems":wy("/yard-sump-systems/"),
+"Drainage tiles":wy("/subsurface-drainage/"),
+"Drainage berms":wy("/yard-grading-drainage/"),
+"Trenching":wy("/excavation-site-drainage/"),
+"Site preparation":wy("/excavation-site-drainage/"),
+"Land development":wy("/excavation-site-drainage/"),
+"Earthwork":wy("/excavation-site-drainage/"),
+"Site work":wy("/excavation-site-drainage/"),
+"Stormwater drainage":wy("/stormwater-drainage/"),
+"Stormwater work":wy("/stormwater-drainage/"),
+"Rainwater drainage":wy("/surface-drainage/")
 };
 
 let selected="";
@@ -70,7 +76,7 @@ document.querySelectorAll("[data-problem]").forEach(b=>{
 document.querySelector("#startFinder")?.addEventListener("click",()=>{
   sessionStorage.setItem("wyProblem",selected||"standing-water");
   sessionStorage.setItem("wyZip",document.querySelector("#zip")?.value.trim()||"");
-  location.href="/wetyard/find-help/";
+  location.href=wy("/find-help/");
 });
 
 function linkedTag(service){
