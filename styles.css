@@ -17,3 +17,9 @@ header,.card,.provider,.result,.finder{color:#142632}
 #leadForm .small{color:#344a55!important;font-weight:650}
 #leadForm button{color:#fff!important}
 .section h2,.pagehero h1{color:#0d304d!important}
+
+/* Dark-background safety: explicit contrast */
+#leadForm .small{color:#ffffff!important}
+#leadForm + h2,#leadForm~h2{color:#ffffff!important}
+#leadForm button,.btn{color:#ffffff!important}
+#providerList{color:#142632}
