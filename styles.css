@@ -49,3 +49,19 @@ header,.card,.provider,.result,.finder{color:#142632}
   border-color:#eaf3ee!important;
   transform:translateY(-1px);
 }
+
+.request-help-cta{
+appearance:none!important;-webkit-appearance:none!important;
+display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;
+width:auto!important;min-width:190px!important;min-height:54px!important;
+margin:12px 0 26px!important;padding:15px 24px!important;
+background:#fff!important;color:#124b37!important;
+border:2px solid #fff!important;border-radius:11px!important;
+font:800 17px/1 system-ui,-apple-system,Segoe UI,Roboto,sans-serif!important;
+text-decoration:none!important;box-shadow:0 6px 18px rgba(0,0,0,.2)!important;
+cursor:pointer!important;opacity:1!important;
+}
+.request-help-cta:hover,.request-help-cta:focus-visible{
+background:#e9f4ee!important;color:#0d3d2c!important;border-color:#e9f4ee!important;
+outline:3px solid rgba(255,255,255,.35)!important;outline-offset:2px!important;
+}
