@@ -23,3 +23,29 @@ header,.card,.provider,.result,.finder{color:#142632}
 #leadForm + h2,#leadForm~h2{color:#ffffff!important}
 #leadForm button,.btn{color:#ffffff!important}
 #providerList{color:#142632}
+
+/* Primary lead action on dark finder section */
+#leadForm button[type="submit"]{
+  display:inline-flex!important;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:14px 24px!important;
+  margin-top:8px;
+  background:#ffffff!important;
+  color:#174f3b!important;
+  border:2px solid #ffffff!important;
+  border-radius:10px!important;
+  font-size:16px!important;
+  font-weight:850!important;
+  line-height:1.1;
+  box-shadow:0 5px 14px rgba(0,0,0,.16);
+  cursor:pointer;
+}
+#leadForm button[type="submit"]:hover,
+#leadForm button[type="submit"]:focus{
+  background:#eaf3ee!important;
+  color:#123f30!important;
+  border-color:#eaf3ee!important;
+  transform:translateY(-1px);
+}
