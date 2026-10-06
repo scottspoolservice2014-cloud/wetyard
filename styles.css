@@ -18,3 +18,7 @@
 .tag{text-decoration:none!important}
 .tag:hover{background:#cfe0e3;color:#0b2f4a;text-decoration:underline!important}
 @media(max-width:760px){.footer-grid{grid-template-columns:1fr}.footer-links{gap:10px 14px}}
+
+.hub-card{display:block;text-decoration:none;color:var(--ink)}
+.hub-card:hover{border-color:#9db9b1;box-shadow:0 6px 18px rgba(18,55,70,.07);transform:translateY(-1px)}
+.hub-card h3{color:var(--navy)}
