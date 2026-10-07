@@ -116,14 +116,26 @@ function render(){
 render();
 
 if(document.querySelector("#leadForm")){
+  const form=document.querySelector("#leadForm");
   document.querySelector("#leadZip").value=sessionStorage.getItem("wyZip")||"";
   document.querySelector("#leadProblem").value=sessionStorage.getItem("wyProblem")||"standing-water";
-  document.querySelector("#leadForm").addEventListener("submit",e=>{
+  form.addEventListener("submit",async e=>{
     e.preventDefault();
-    const f=new FormData(e.target);
-    const body=[...f.entries()].map(([k,v])=>k+": "+v).join("\n");
-    location.href="mailto:Scottspoolservice2014@gmail.com?subject="+
-      encodeURIComponent("WetYard help request — "+(f.get("zip")||"Treasure Coast"))+
-      "&body="+encodeURIComponent(body);
+    const btn=form.querySelector(".request-help-cta");
+    const original=btn.textContent;
+    btn.disabled=true;
+    btn.textContent="Sending…";
+    try{
+      const res=await fetch(wy("/api/lead"),{method:"POST",body:new FormData(form)});
+      const data=await res.json().catch(()=>({}));
+      if(!res.ok||!data.ok)throw new Error(data.error||"Unable to send request");
+      sessionStorage.removeItem("wyProblem");
+      sessionStorage.removeItem("wyZip");
+      location.href=wy("/thank-you/");
+    }catch(err){
+      btn.disabled=false;
+      btn.textContent=original;
+      alert("We couldn't send your request yet. Please try again in a moment.");
+    }
   });
 }
